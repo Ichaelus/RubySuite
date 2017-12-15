@@ -13,3 +13,4 @@ abprof-*.gem
 *.log
 *sequence.txt
 *.gz
+applications.json

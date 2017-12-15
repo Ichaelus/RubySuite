@@ -1,0 +1,9 @@
+Interpreter,mri-2.3.3,ruby+omr,rtl-mjit,jruby-1.7.27,jruby-9.1.13,truffleruby-0.30
+vs. mri-1.8.7 (Base),worse,worse,worse,equal,equal,worse
+p-value,4.0e-06,0.0,0.0,0.006373,0.46665,1.0e-06
+Observation median,0.009519,0.01123,0.009399,0.012821,0.014742,0.006705
+Observation median (Base),0.013713,0.013713,0.013713,0.013713,0.013713,0.013713
+Observation median (difference),0.692492,0.816846,0.683763,0.933251,1.072848,0.487778
+Observation mean,0.010534,0.011236,0.009357,0.012971,0.015211,0.009441
+Observation mean (Base),0.01448,0.01448,0.01448,0.01448,0.01448,0.01448
+Observation mean (difference),0.714606,0.761918,0.636314,0.881601,1.035748,0.642289

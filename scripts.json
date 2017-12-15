@@ -1,0 +1,229 @@
+// If attributes are not set, their value is kept from the previous test!
+// Measured runtime must be multiplied by 7 (# interpreters) to calculate the total runtime of this test
+{
+  "examples/toygame/binarytrees/binarytrees.rb": {
+    "name": "Binärbäume",
+    "description": "The work is to fully create perfect binary trees - before any tree nodes are GC'd - using at-minimum the number of allocations of Jeremy Zerfas's C program",
+    "input_size": 16, // Official: 21, was 18 with trials
+    "measured_runtime": 1200,  // seconds => 10' each
+    "trials": 1000,
+    "warmup": 1,
+    "p_threshold": 0.001,
+    "higher_is_better": false,
+    "observance": "runtime",
+    "unit": "ms"
+  },
+  "examples/toygame/chameneosredux/chameneos-redux.rb": {
+    "name": "Chameneos",
+    "description": "An adaptation of \"Chameneos, a Concurrency Game for Java, Ada and Others\" (which includes example implementations in Java, Ada and C).",
+    "input_size": 100000, // Official: 6000000
+    "measured_runtime": 1200,  // seconds => 10' each
+    "trials": 1000,
+    "warmup": 1,
+    "p_threshold": 0.001,
+    "higher_is_better": false,
+    "observance": "runtime",
+    "unit": "ms"
+  },
+  "examples/toygame/fannkuchredux/fannkuch-redux.rb": {
+    "name": "Fannkuch",
+    "description": "The fannkuch benchmark is defined by programs in Performing Lisp Analysis of the FANNKUCH Benchmark, Kenneth R. Anderson and Duane Rettig. FANNKUCH is an abbreviation for the German word Pfannkuchen, or pancakes, in analogy to flipping pancakes. The conjecture is that the maximum count is approximated by n*log(n) when n goes to infinity.",
+    "input_size": 10, // Official: 12
+    "measured_runtime": 1200,  // seconds => 10' each
+    "trials": 100,
+    "warmup": 1,
+    "p_threshold": 0.001,
+    "higher_is_better": false,
+    "observance": "runtime",
+    "unit": "ms"
+  },
+  "examples/toygame/fasta/fasta.rb": {
+    "name": "Fasta",
+    "description": "FASTA format is a text-based format for representing either nucleotide sequences or peptide sequences, in which nucleotides or amino acids are represented using single-letter codes.",
+    "input_size": 1000000, // Official: 25000000
+    "measured_runtime": 1200,  // seconds => 10' each
+    "trials": 100,
+    "warmup": 1,
+    "p_threshold": 0.001,
+    "higher_is_better": false,
+    "observance": "runtime",
+    "unit": "ms"
+  },
+  "examples/toygame/fasta/fasta-no-eval.rb": {
+    "name": "Fasta ohne eval",
+    "description": "FASTA format is a text-based format for representing either nucleotide sequences or peptide sequences, in which nucleotides or amino acids are represented using single-letter codes.",
+    "input_size": 1000000, // Official: 25000000
+    "measured_runtime": 1200,  // seconds => 10' each
+    "trials": 100,
+    "warmup": 1,
+    "p_threshold": 0.001,
+    "higher_is_better": false,
+    "observance": "runtime",
+    "unit": "ms"
+  },
+  "examples/toygame/mandelbrot/mandelbrot.rb": {
+    "name": "Mandelbrot",
+    "description": "In general, a Mandelbrot set marks the set of points in the complex plane such that the corresponding Julia set is connected and not.",
+    // Beobachtung: Ergebnisse weichen stark von der Eingabegröße ab. Eg.: 250 iterationen (truffle = 76x schneller) vs. 25 iterationen (truffle = 11x schneller)
+    "input_size": 1000, // Official: 16000
+    "measured_runtime": 1200,  // seconds => 10' each
+    "trials": 100,
+    "warmup": 1,
+    "p_threshold": 0.001,
+    "higher_is_better": false,
+    "observance": "runtime",
+    "unit": "ms"
+  },
+  "examples/toygame/meteor/meteor.rb": {
+    "name": "Meteor",
+    "description": "The Meteor Puzzle board is made up of 10 rows of 5 hexagonal Cells. There are 10 puzzle pieces to be placed on the board, we'll number them 0 to 9. Each puzzle piece is made up of 5 hexagonal Cells.",
+    "input_size": 2098, // Does not seem to change a thing
+    "measured_runtime": 1200,  // seconds => 10' each
+    "trials": 100,
+    "warmup": 1,
+    "p_threshold": 0.001,
+    "higher_is_better": false,
+    "observance": "runtime",
+    "unit": "ms"
+  },
+  "examples/toygame/nbody/nbody.rb": {
+    "name": "N-Körper",
+    "description": "Model the orbits of Jovian planets, using the same simple symplectic-integrator.",
+    "input_size": 1000000, // Official: 50000000
+    "measured_runtime": 1200,  // seconds => 10' each
+    "trials": 100,
+    "warmup": 1,
+    "p_threshold": 0.001,
+    "higher_is_better": false,
+    "observance": "runtime",
+    "unit": "ms"
+  },/*
+  "examples/plottest/plottest.rb": {
+    "name": "Plot-Test",
+    "description": "Model the orbits of Jovian planets, using the same simple symplectic-integrator.",
+    "input_size": 1000, // Official: 50000000
+    "trials": 50,
+    "measured_runtime": 15,  // seconds
+    "warmup": 1,
+    "p_threshold": 0.001,
+    "higher_is_better": true,
+    "observance": "observation",
+    "unit": "unit"
+  },*/
+  "examples/cpu/optcarrot_backported/optcarrot.rb": {
+    "name": "Optcarrot",
+    "input_size": 1,
+    "measured_runtime": 1200,  // seconds => 20' each
+    "trials": 25, // ~ 30 secs each. => 25*30*5 = 62 Minutes
+    "warmup": 1,
+    "p_threshold": 0.01,
+    "higher_is_better": true,
+    "observance": "Frames per second",
+    "unit": "fps"
+  },
+  "examples/cpu/optcarrot_backported_fiber_fix/optcarrot_fixed_fibers.rb": {
+    "name": "Optcarrot, fixed",
+    "input_size": 1,
+    "measured_runtime": 1200,  // seconds => 20' each
+    "trials": 25, // ~ 30 secs each. => 25*30*5 = 62 Minutes
+    "warmup": 1,
+    "p_threshold": 0.01,
+    "higher_is_better": true,
+    "observance": "Frames per second",
+    "unit": "fps"
+  },/*
+  "examples/cpu/optcarrot_original/optcarrot_optimized.rb": {
+    "input_size": 1,
+    "measured_runtime": 1200,  // seconds => 20' each
+    "trials": 25,
+    "warmup": 1,
+    "p_threshold": 0.01,
+    "higher_is_better": true,
+    "observance": "Frames per second",
+    "unit": "fps"
+  },
+  "examples/cpu/optcarrot_original/optcarrot_same_instance.rb": {
+    "input_size": 1,
+    "measured_runtime": 300,  // seconds => 20' each
+    "trials": 25,
+    "warmup": 1,
+    "p_threshold": 0.01,
+    "higher_is_better": true,
+    "observance": "Frames per second",
+    "unit": "fps"
+  },
+  "examples/cpu/optcarrot_backported/optcarrot_optimized_cpu.rb": {
+    "input_size": 1,
+    "measured_runtime": 1200,  // seconds => 20' each
+    "trials": 25,
+    "warmup": 1,
+    "p_threshold": 0.01,
+    "higher_is_better": true,
+    "observance": "Frames per second",
+    "unit": "fps"
+  },
+  "examples/cpu/optcarrot_backported/optcarrot_optimized_ppu.rb": {
+    "input_size": 1,
+    "measured_runtime": 1200,  // seconds => 20' each
+    "trials": 25,
+    "warmup": 1,
+    "p_threshold": 0.01,
+    "higher_is_better": true,
+    "observance": "Frames per second",
+    "unit": "fps"
+  },
+  Oups. seems to be almost equal to regex-redux
+  "examples/toygame/regexdna/regex-dna.rb": {
+    "description": "The work is to use the same simple regex patterns and actions to manipulate FASTA format data. Don't optimize away the work.",
+    "input_size": 100, // Official: 5000000
+    "measured_runtime": 1200,  // seconds => 10' each
+    "trials": 1500,
+    "warmup": 1,
+    "p_threshold": 0.001,
+    "higher_is_better": false,
+    "observance": "runtime",
+    "unit": "ms"
+  },*/
+  "examples/toygame/regexredux/regex-redux.rb": {
+    "name": "Regex-DNA",
+    "description": "The work is to use the same simple regex patterns and actions to manipulate FASTA format data. Don't optimize away the work.",
+    "input_size": 1000000, // Official: 5000000
+    "measured_runtime": 1200,  // seconds => 10' each
+    "trials": 1500,
+    "warmup": 1,
+    "p_threshold": 0.001,
+    "higher_is_better": false,
+    "observance": "runtime",
+    "unit": "ms"
+  },
+  "examples/toygame/reverse_complement/reverse-complement.rb": {
+    "name": "Reverse Complement",
+    "description": "… by knowing the sequence of bases of one strand of DNA we immediately know the sequence of the DNA strand which will bind to it, this strand is called the reverse complement …",
+    "input_size": 1000000, // Official: 25000000
+    "measured_runtime": 1200,  // seconds => 10' each
+    // This example depends on the output of the fasta example.
+    // => Run fasta with the same number of iterations first!
+    "trials": 1500,
+    "warmup": 1,
+    "p_threshold": 0.001,
+    "higher_is_better": false,
+    "observance": "runtime",
+    "unit": "ms"
+  }
+  /*
+  "examples/toygame/spectralnorm/spectralnorm.rb": { # Does not work @ java, though fixable
+    "description": "MathWorld: "Hundred-Dollar, Hundred-Digit Challenge Problems", Challenge #3.",
+    "input_size": 5,
+    "measured_runtime": 1200,  // seconds => 10' each
+    "trials": 5,
+    "warmup: 1,
+    "p_threshold": 0.001,
+    "higher_is_better": false,
+    "observance: "runtime
+  },*/
+  /*
+  "examples/toygame/knucleotide/knucleotide.rb": {}, # Seems to have  broken pipe. If it works, keep trial amount high
+  "examples/toygame/pidigits/pidigits.rb": {}, # needs gmp libraray
+  "examples/toygame/threadring/threadring.rb": {} # Does not work threaded - stack level might be too deep
+  */
+}

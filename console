@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require 'active_support'
+require 'active_support/dependencies'
+ActiveSupport::Dependencies.autoload_paths += %w[app lib]
+
+require 'irb'
+IRB.start

@@ -1,0 +1,75 @@
+// A sample JSON, copy to applications.json and modify to fit your needs
+[
+  {
+    "name":  "My Rails app",
+    "warmup": 5,
+    "concurrency": 20, // Use values > 6 to evaluate concurrency if you are using passenger. (max_pool_size defaults to 6)
+    "requests": 1000,
+    "interpreters":
+    [
+      {
+        "name": "mri-1.8.7",
+        "rbenv-command": "1.8.7", // rbenv 1.8.7 must work
+        "path": "../applications/my_rails_app_for_mri_1_8_7/", // The rails app must live in this directory
+        "environment": "", // Set environment variables when initializing ruby
+        "parameters": "", // pass parameters to ruby
+        "start_command": "passenger start", // or: bin/rails server
+        "stop_command": "passenger stop" // only necessary when using an application server
+      },
+      {
+        "name": "mri-2.3.3",
+        "rbenv-command": "2.3.3",
+        "path": "../applications/my_rails_app_for_mri_2_3_3/",
+        "environment": "",
+        "parameters": "",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      },
+      {
+        "name": "ruby+omr",
+        "rbenv-command": "omr_2_4",
+        "path": "../applications/my_rails_app_for_ruby_omr",
+        "environment": "env OMR_JIT_OPTIONS=\"-Xjit\"",
+        "parameters": "",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      },
+      {
+        "name": "rtl-mjit",
+        "rbenv-command": "mjit-2.5",
+        "path": "../applications/my_rails_app_for_mjit_2.5",
+        "environment": "",
+        "parameters": "-j:l",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      },
+      {
+        "name": "jruby-1.7.27",
+        "rbenv-command": "jruby-1.7.27",
+        "path": "../applications/my_rails_app_for_jruby_1_7_27/",
+        "environment": "env JRUBY_OPTS=--1.8",
+        "parameters": "-J-Xmn512m -J-Xms2048m -J-Xmx2048m --server",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      },
+      {
+        "name": "jruby-9.1.13",
+        "rbenv-command": "jruby-9.1.13",
+        "path": "../applications/my_rails_app_for_jruby_9_1_13/",
+        "environment": "",
+        "parameters": "-J-Xmn512m -J-Xms2048m -J-Xmx2048m --server",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      }
+    ],
+    "views":
+    [
+      {
+        "name": "Landing page",
+        // The curl command can be extracted using the chrome dev tools or similar
+        "curl_command": "curl 'http://0.0.0.0:3000/' -H 'Accept-Encoding: gzip, deflate' -H 'Accept-Language: en-US,en;q=0.9,de;q=0.8' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' -H 'Connection: keep-alive' -H 'Cache-Control: no-cache' --compressed",
+        "url": "http://0.0.0.0:3000/"
+      }
+    ]
+  }
+]

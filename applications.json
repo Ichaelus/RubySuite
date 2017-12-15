@@ -1,0 +1,174 @@
+[
+  {
+    "name":  "ProjectHero",
+    "warmup": 5,
+    "concurrency": 5,
+    "requests": 1000,
+    "interpreters":
+    [
+      {
+        "name": "mri-1.8.7",
+        "rbenv-command": "1.8.7",
+        "path": "../real-applications/PH_mri_1_8_7/",
+        "environment": "",
+        "parameters": "",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      },
+      {
+        "name": "mri-2.3.3",
+        "rbenv-command": "2.3.3",
+        "path": "../real-applications/PH_mri_2_3_3/",
+        "environment": "",
+        "parameters": "",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      },
+      {
+        "name": "ruby+omr",
+        "rbenv-command": "omr_2_4",
+        "path": "../real-applications/PH_ruby_omr",
+        "environment": "env OMR_JIT_OPTIONS=\"-Xjit\"",
+        "parameters": "",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      },
+      {
+        "name": "rtl-mjit",
+        "rbenv-command": "mjit-2.5",
+        "path": "../real-applications/PH_mjit_2.5",
+        "environment": "",
+        "parameters": "-j:l",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      },
+      {
+        "name": "jruby-1.7.27",
+        "rbenv-command": "jruby-1.7.27",
+        "path": "../real-applications/PH_jruby_1_7_27/",
+        "environment": "env JRUBY_OPTS=--1.8",
+        "parameters": "-J-Xmn512m -J-Xms2048m -J-Xmx2048m --server",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      },
+      {
+        "name": "jruby-9.1.13",
+        "rbenv-command": "jruby-9.1.13",
+        "path": "../real-applications/PH_jruby_9_1_13/",
+        "environment": "",
+        "parameters": "-J-Xmn512m -J-Xms2048m -J-Xmx2048m --server",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      }
+    ],
+    "views":
+    [
+      {
+        "name": "5 Monate Mitarbeiterplanung",
+        "curl_command": "curl 'http://0.0.0.0:3000/tasks?angle=by_user' -H 'Accept-Encoding: gzip, deflate' -H 'Accept-Language: en-US,en;q=0.9,de;q=0.8' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' -H 'Referer: http://0.0.0.0:3000/planner_view/edit?return_to=%2Ftasks%3Fangle%3Dby_user' -H 'Connection: keep-alive' -H 'Cache-Control: no-cache' --compressed",
+        "url": "http://0.0.0.0:3000/tasks?angle=by_user"
+      },
+      {
+        "name": "7 Jahre Joblogs paginiert",
+        "curl_command": "curl 'http://0.0.0.0:3000/activities?id=&filter=&start_date=01.11.2010&end_date=30.11.2017&billability=alle&commit=Filtern' -H 'Accept-Encoding: gzip, deflate' -H 'Accept-Language: en-US,en;q=0.9,de;q=0.8' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' -H 'Cache-Control: max-age=0' -H 'Connection: keep-alive' --compressed",
+        "url": "http://0.0.0.0:3000/activities?id=&filter=&start_date=01.11.2010&end_date=30.11.2017&billability=alle&commit=Filtern"
+      },
+      {
+        "name": "Alle Angebote",
+        "curl_command": "curl 'http://0.0.0.0:3000/projects/offers' -H 'Origin: http://0.0.0.0:3000' -H 'Accept-Encoding: gzip, deflate' -H 'Accept-Language: en-US,en;q=0.9,de;q=0.8' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' -H 'Cache-Control: max-age=0' -H 'Referer: http://0.0.0.0:3000/projects/offers' -H 'Connection: keep-alive' --compressed",
+        "url": "http://0.0.0.0:3000/projects/offers"
+      },
+      {
+        "name": "Projektuebersicht mensa inform",
+        "curl_command": "curl 'http://0.0.0.0:3000/projects/304/notes' -H 'Accept-Encoding: gzip, deflate' -H 'Accept-Language: en-US,en;q=0.9,de;q=0.8' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' -H 'Cache-Control: max-age=0' -H 'Connection: keep-alive' --compressed",
+        "url": "http://0.0.0.0:3000/projects/304/notes"
+      }
+    ]
+  },
+  {
+    "name":  "Phaeno",
+    "warmup": 5,
+    "concurrency": 5,
+    "requests": 1000,
+    "interpreters":
+    [
+      {
+        "name": "mri-1.8.7",
+        "rbenv-command": "1.8.7",
+        "path": "../real-applications/phaeno_mri_1_8_7/",
+        "environment": "",
+        "parameters": "",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      },
+      {
+        "name": "mri-2.3.3",
+        "rbenv-command": "2.3.3",
+        "path": "../real-applications/phaeno_mri_2_3_3/",
+        "environment": "",
+        "parameters": "",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      },
+      {
+        "name": "ruby+omr",
+        "rbenv-command": "omr_2_4",
+        "path": "../real-applications/phaeno_ruby_omr",
+        "environment": "env OMR_JIT_OPTIONS=\"-Xjit\"",
+        "parameters": "",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      },
+      {
+        "name": "rtl-mjit",
+        "rbenv-command": "mjit-2.5",
+        "path": "../real-applications/phaeno_mjit_2.5",
+        "environment": "",
+        "parameters": "-j:l",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      },
+      {
+        "name": "jruby-1.7.27",
+        "rbenv-command": "jruby-1.7.27",
+        "path": "../real-applications/phaeno_jruby_1_7_27",
+        "environment": "env JRUBY_OPTS=--1.8",
+        "parameters": "-J-Xmn512m -J-Xms2048m -J-Xmx2048m --server",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      },
+      {
+        "name": "jruby-9.1.13",
+        "rbenv-command": "jruby-9.1.13",
+        "path": "../real-applications/phaeno_jruby_9_1_13/",
+        "environment": "",
+        "parameters": "-J-Xmn512m -J-Xms2048m -J-Xmx2048m --server",
+        "start_command": "passenger start",
+        "stop_command": "passenger stop"
+      }
+    ],
+    "views":
+    [
+      {
+        "name": "Alle Artikel Vorlagen",
+        "curl_command": "curl 'http://localhost:3000/template' -H 'Accept-Encoding: gzip, deflate, br' -H 'Accept-Language: en-US,en;q=0.9,de;q=0.8' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' -H 'Cache-Control: max-age=0' -H 'Connection: keep-alive' --compressed",
+        "url": "http://localhost:3000/template"
+      },
+      {
+        "name": "Artikel Detailsuche 1 Tag",
+        "curl_command": "curl 'http://localhost:3000/order/list_detail?article_group=&article=&daily%5Bstart%5D=2017-10-02+00%3A00&daily%5Bend%5D=2017-10-02+23%3A59&dispatch_type=&paytype=&commit=suchen' -H 'Accept-Encoding: gzip, deflate, br' -H 'Accept-Language: en-US,en;q=0.9,de;q=0.8' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' -H 'Referer: http://localhost:3000/order/detailsearch' -H 'Connection: keep-alive' --compressed",
+        "url": "http://localhost:3000/order/list_detail?article_group=&article=&daily%5Bstart%5D=2017-10-02+00%3A00&daily%5Bend%5D=2017-10-02+23%3A59&dispatch_type=&paytype=&commit=suchen"
+      },
+      {
+        "name": "Reservierungen Tagesuebersicht",
+        "curl_command": "curl 'http://localhost:3000/i_res/daily?day=15.11.2017&commit=anzeigen' -H 'Accept-Encoding: gzip, deflate, br' -H 'Accept-Language: en-US,en;q=0.9,de;q=0.8' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' -H 'Referer: http://localhost:3000/i_res/daily' -H 'Cookie: ' -H 'Connection: keep-alive' --compressed",
+        "url": "http://localhost:3000/i_res/daily?day=15.11.2017&commit=anzeigen"
+      },
+      {
+        "name": "Gebuchte Artikel - Tagesuebersicht",
+        "curl_command": "curl 'http://localhost:3000/order/articles_daily?day=14.11.2017&step_size=15&start_hour=09&start_minute=00&end_hour=17&end_minute=00&commit=anzeigen' -H 'Accept-Encoding: gzip, deflate, br' -H 'Accept-Language: en-US,en;q=0.9,de;q=0.8' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' -H 'Referer: http://localhost:3000/order/articles_daily' -H 'Connection: keep-alive' --compressed",
+        "url": "http://localhost:3000/order/articles_daily?day=14.11.2017&step_size=15&start_hour=09&start_minute=00&end_hour=17&end_minute=00&commit=anzeigen"
+      }
+    ]
+  }
+]

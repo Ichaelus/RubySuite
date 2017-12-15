@@ -1,0 +1,9 @@
+Interpreter,ruby+omr,rtl-mjit,jruby-9.1.13
+vs. mri-2.3.3 (Base),better,better,worse
+p-value,0.0,0.0,0.0
+Frames per second median,53.991193,65.706156,12.468242
+Frames per second median (Base),49.939827,49.939827,49.939827
+Frames per second median (difference),1.081125,1.315707,0.249983
+Frames per second mean,53.724863,65.466827,12.421326
+Frames per second mean (Base),49.669355,49.669355,49.669355
+Frames per second mean (difference),1.08165,1.318053,0.250718

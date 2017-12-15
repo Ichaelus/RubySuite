@@ -1,0 +1,6 @@
+*
+!bin/
+!examples/
+!lib/
+!tools/shim.rb
+!benchmark/*-core-opt-*.rb

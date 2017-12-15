@@ -1,0 +1,52 @@
+{
+  "base": {
+      "name": "mri-1.8.7",
+      "rbenv-command": "1.8.7",
+      "environment": "",
+      "parameters": ""
+  },
+  "versus": [
+    {
+      "name": "mri-2.3.3",
+      "rbenv-command": "2.3.3",
+      "environment": "",
+      "parameters": ""
+    },/*
+    {
+      "name": "rubinius-3.84", // mri 2.3.1
+      "rbenv-command": "rbx-3.84",
+      "environment": "",
+      "parameters": ""
+    }*/
+    {
+      "name": "ruby+omr", // mri 2.2.0
+      "rbenv-command": "omr_2_4",
+      "environment": "",//"env OMR_JIT_OPTIONS=\"-Xjit\"",
+      "parameters": ""
+    },
+    {
+      "name": "rtl-mjit", // mri 2.5.0, LLVM Just in time
+      "rbenv-command": "mjit-2.5",
+      "environment": "",
+      "parameters": "-j:l"
+    },
+    {
+      "name": "jruby-1.7.27", // mri 1.8.7
+      "rbenv-command": "jruby-1.7.27",
+      "environment": "env JRUBY_OPTS=--1.8",
+      "parameters": "-J-Xmn512m -J-Xms1024m -J-Xmx2048m -J-server" // -Xcompile.invokedynamic=true
+    },
+    {
+      "name": "jruby-9.1.13",
+      "rbenv-command": "jruby-9.1.13",
+      "environment": "",
+      "parameters": "-J-Xmn512m -J-Xms1024m -J-Xmx2048m -J-server" // -Xcompile.invokedynamic=true
+    },
+    {
+      "name": "truffleruby-0.30.2",
+      "rbenv-command": "truffleruby-0.30.2",
+      "environment": "env TRUFFLERUBY_CEXT_ENABLED=true",
+      "parameters": "--jvm.Xmn512m --jvm.Xms1024m --jvm.Xmx2048m -J-Dgraal.TraceTruffleCompilation=false --jvm.server"
+    }
+  ]
+}

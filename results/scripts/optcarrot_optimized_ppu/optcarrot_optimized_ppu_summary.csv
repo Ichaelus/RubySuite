@@ -1,0 +1,7 @@
+Interpreter,vs. mri-1.9.3 (Base),p-value,Frames per second median,Frames per second median (Base),Frames per second median (difference),Frames per second mean,Frames per second mean (Base),Frames per second mean (difference)
+mri-2.3.3,better,0.0,39.936807,35.217184,1.134015,39.884795,35.590087,1.120671
+mjit-rtl-2.5,better,0.0,45.806946,35.217184,1.300699,45.815129,35.590087,1.2873
+ruby-OMR-preview,better,0.0,38.476975,35.217184,1.092563,38.593242,35.590087,1.084382
+jruby-1.7.27,worse,0.0,6.912442,35.217184,0.19628,6.879831,35.590087,0.193308
+jruby-9.1.13,worse,0.0,12.262221,35.217184,0.348189,12.269981,35.590087,0.344758
+truffleruby-0.29,worse,0.0,0.491233,35.217184,0.013949,0.486136,35.590087,0.013659

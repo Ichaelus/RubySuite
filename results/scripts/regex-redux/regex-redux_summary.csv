@@ -1,0 +1,9 @@
+Interpreter,mri-2.3.3,ruby+omr,rtl-mjit,jruby-1.7.27,jruby-9.1.13,truffleruby-0.30.2
+vs. mri-1.8.7 (Base),better,better,better,better,better,better
+p-value,0.0,0.0,0.0,0.0,0.0,0.0
+Runtime median,2.619932,2.09167,2.103239,2.085578,2.860307,4.261183
+Runtime median (Base),5.339519,5.339519,5.339519,5.339519,5.339519,5.339519
+Runtime median (difference),2.038037,2.552754,2.538712,2.560211,1.866764,1.25306
+Runtime mean,2.624101,2.094745,2.106405,2.090916,2.86497,4.300891
+Runtime mean (Base),5.322695,5.322695,5.322695,5.322695,5.322695,5.322695
+Runtime mean (difference),2.028388,2.540975,2.52691,2.545628,1.857854,1.23758

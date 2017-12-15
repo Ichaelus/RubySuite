@@ -1,0 +1,59 @@
+#!/usr/bin/env ruby
+require 'trollop'
+require 'active_support'
+require 'active_support/dependencies'
+ActiveSupport::Dependencies.autoload_paths += %w[app lib]
+
+OPTIONS = Trollop::options do
+  banner <<BANNER
+Example:  #{$0} --test-scripts-regex binary
+
+Specifying lots of iterations and trials, high burn-in and a low P value
+is accurate, but slow.
+
+Specifying low iterations, trials and burn-in and a high P value gives
+quick, rough results early on.
+
+Specifying more iterations per trial is good for highly variable iteration
+timing.
+
+Specifying a lower max number of trials keeps the test from running *too*
+long when the two are identical.
+
+Specifying a high burn-in is necessary when cache behavior changes timing
+significantly.
+
+Vast numbers of trials can nearly always occasionally show differences
+*somewhere* along the line, just by random chance. To avoid this, pick how
+many samples first, run them all in one go, and then just check the p value
+once.
+
+A p value is often interpreted as the probability we got a wrong answer.
+That's an oversimplification, but not (usually) a terrible one.
+
+BANNER
+  # No default implies boolean values that default to false
+
+  opt :debug,               'Print more output to console'
+  opt :test_scripts,        'Run the test-suite for every script (this may take very long)'
+  opt :test_scripts_regex,  'Run the test-suite for every script file that matches the specified string', :type => :string
+  opt :reload_old_results,  'Re-use old results while evaluating a test script. Use it if the last execution crashed or was aborted, or if you want to re-plot the graph.'
+  opt :test_applications,   'Profile real world applications'
+  opt :test_applications_regex, 'Profile real world applications that match the specified string', :type => :string
+  opt :measure_startup_time, 'Measure the startup time of every listed interpreter'
+  opt :base,                'Display the base of comparison (an interpreter)'
+  opt :versus,              'List all interpreters that are compared with the base interpreter'
+  opt :bundle,              'Bundle the base and versus interpreters'
+  opt :scripts,             'List all script paths (of scripts.json)'
+  opt :summarize_scripts,   'Create a script-summarizing CSV'
+  opt :summarize_apps,      'Create a rails-summarizing CSV'
+  opt :show_result,         'Display the last summarized boxplot for a given <example>.', :type => :string
+end
+
+# OPTIONS is a hash with the singleton method "method_missing".
+# To make it serializable with marshal, it has to be transformed to a normal hash
+cli_options = Hash.new
+OPTIONS.each do |key, value|
+  cli_options[key] = value
+end
+CLI.new(cli_options)

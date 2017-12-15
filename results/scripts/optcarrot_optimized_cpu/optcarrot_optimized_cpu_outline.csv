@@ -1,0 +1,18 @@
+Attribute,Value
+Test-Script,examples/cpu/optcarrot/optcarrot_optimized_cpu.rb
+Observed attribute,Frames per second
+Higher value is better,true
+Base Interpreter,mri-1.9.3
+Threshold for the p-value,0.01
+Iterations per run,1
+Warmup runs,1
+Trial runs,25
+Start-Time of the Experiment,2017-12-02 11:09:29 +0100
+End-Time of the Experiment,2017-12-02 12:17:42 +0100
+Evaluating interpreter,ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-linux]
+Operating system,Ubuntu 16.04.3 LTS
+Processor,Intel(R) Core(TM) i7 CPU 870 @ 2.93GHz
+Physical cores,4
+Total cores,8
+Memory (total),16429312kB
+Memory (free),7674224kB

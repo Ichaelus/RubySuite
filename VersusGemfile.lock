@@ -1,0 +1,52 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    domain_name (0.5.20170404)
+      unf (>= 0.0.5, < 1.0.0)
+    fiber (0.0.1)
+    get_process_mem (0.2.1)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    mechanize (2.7.5)
+      domain_name (~> 0.5, >= 0.5.1)
+      http-cookie (~> 1.0)
+      mime-types (>= 1.17.2)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-persistent (~> 2.5, >= 2.5.2)
+      nokogiri (~> 1.6)
+      ntlm-http (~> 0.1, >= 0.1.1)
+      webrobots (>= 0.0.9, < 0.2)
+    mime-types (2.99.3)
+    mini_portile2 (2.1.0)
+    net-http-digest_auth (1.4.1)
+    net-http-persistent (2.9.4)
+    nokogiri (1.6.8.1)
+      mini_portile2 (~> 2.1.0)
+    nokogiri (1.6.8.1-java)
+    ntlm-http (0.1.1)
+    passenger (5.1.11)
+      rack
+      rake (>= 0.8.1)
+    rack (1.6.8)
+    rake (12.2.1)
+    thread (0.2.2)
+    unf (0.1.4)
+      unf_ext
+    unf (0.1.4-java)
+    unf_ext (0.0.7.4)
+    webrobots (0.1.2)
+
+PLATFORMS
+  java
+  ruby
+
+DEPENDENCIES
+  bundler
+  fiber
+  get_process_mem
+  mechanize
+  passenger
+  thread
+
+BUNDLED WITH
+   1.16.0
