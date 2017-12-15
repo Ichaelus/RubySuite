@@ -1,0 +1,15 @@
+/.bundle/
+/.yardoc
+/Gemfile.lock
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+abprof-*.gem
+*.zip
+/dumps/
+*.log
+*sequence.txt
+*.gz
