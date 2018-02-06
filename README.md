@@ -9,7 +9,7 @@ Currently, there are two kind of comparisons:
 
 ## Prerequisites
 
-There is quite a lot to do to make use of every feature, but for a start running `git clone git@github.com:Ichaelus/RubySuite.git` and configuring  `interpreters.json` might do the trick. It controls which interpreters are evaluated (against a ground truth called _base_). For each entry, you can specify 
+There is quite a lot to do to make use of every feature, but for a start running `git clone git@github.com:Ichaelus/RubySuite.git` and configuring  `interpreters.json` might do the trick. It controls which interpreters are evaluated (in relation to a ground truth called _base_) based on the [_unpaired Students t-test_](https://en.wikipedia.org/wiki/Student%27s_t-test). For each entry, you can specify:
 
 * A **name**, e.g. `mri 1.8.7`, used internally to plot graphs and distinguish interpreters.
 * An **rbenv interpreter name**, e.g. `1.8.7`.  Make sure it is installed on your local machine by calling `rbenv list`.
@@ -27,12 +27,12 @@ A step by step guide to get the default list of interpeters running:
 
 - Install [rbenv](https://github.com/rbenv/rbenv) and update [ruby-build](https://github.com/rbenv/ruby-build): `cd "$(rbenv root)"/plugins/ruby-build && git pull`
 - For every interpreter of your choice below, install it and run `rbenv shell <interpreter> && gem install bundler` and `./tcompare --bundle` inside your cloned _RubySuite_ folder
-  - Install mri-1.9.3: `rbenv install 1.9.3-p551`
+  - Install [mri](https://github.com/ruby/ruby)-1.9.3: `rbenv install 1.9.3-p551`
   - Install mri-2.3.3: `rbenv install 2.3.3`
   - Install [Rubinius](https://github.com/rubinius/rubinius) 3.84 `rbenv install rbx-3.84`
   - [Install Ruby + OMR 2.4](https://github.com/rubyomr-preview/ruby/tree/ruby_2_4_omr)
   - [Install RTL-MJIT](https://github.com/vnmakarov/ruby/tree/rtl_mjit_branch)
-  - Install jruby-1.7.27: `rbenv install jruby-1.7.27`
+  - Install [jruby](https://github.com/jruby/jruby)-1.7.27: `rbenv install jruby-1.7.27`
   - Install jruby-9.1.13: `rbenv install jruby-9.1.13.0`
   - [Install truffleruby](https://makandracards.com/ruby-interpreter/47581-truffleruby)
 - And there is much more out there: Consider [Yarv-MJIT](https://github.com/k0kubun/yarv-mjit), [Topaz](https://github.com/topazproject/topaz) etc.
@@ -48,20 +48,16 @@ Now that you have every interpreter installed along with the [bundler](https://g
 
 ## T-Compare (Ruby Script comparison)
 
-It's time to evaluate! Run `./tcompare --help` at any time to peek at the list of commands the suite provides for you. I'll list a few for you:
+It's time to evaluate! Run `./tcompare --help` at any time to peek at the list of commands the suite provides for you. I'll list a few for you, the leading `./` :
 
 ```
+./tcompare --bundle # Bundles every listed interpreter with script-specific dependencies. (Experimental)
 ./tcompare --test-scripts # A complete evaluation of the defined test scripts (*)
+./tcompare --test-scripts-regex fannkuch` # Evaluate only scripts including `fannkuch` in their filename
+./tcompare --help # A complete (and up-to-date) list of commands
 ```
-
-`interpreters.json` defines, which rubies are being compared. You have to install every of them using `rbenv`. The so called `base interpreter` is compared using the _Students t-test_ with every of the `versus` interpreters.
 
 (*) The file `scripts.json` defines a list of scripts that are evaluated with specified warmup iterations, trials etc. You can gladly add your own, best by first having a look at the other examples. Test results are stored in `results/script/<test name>/` and will be overwritten each time you re-run them. There are CSVs for every T-test, outlines (OS, script setup, runtime,..) as well as summarized results. Oh, and don't forget to look at the shiny plots.
-
-* First, run `tcompare --bundle` to bundle every listed interpreter
-* Then, run `tcompare --test-all` to run all tests on your machine or
-* `tcompare --test-regex fannkuch` to run only tests including `fannkuch` in their filename
-* See `tcompare --help` for a complete list
 
 ## T-Profile (Real application comparison)
 
